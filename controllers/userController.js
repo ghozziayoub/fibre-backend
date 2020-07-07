@@ -13,6 +13,11 @@ app.get('/', (req, res) => {
     res.status(200).send("Welcome to user controller");
 })
 
+app.get('/all', async (req, res) => {
+    let users = User.find();
+    res.status(200).send(users);
+})
+
 app.post('/register', (req, res) => {
 
     let data = req.body;
