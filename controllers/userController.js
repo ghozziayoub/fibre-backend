@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/all', async (req, res) => {
-    let users = User.find();
+    let users = await User.find();
     res.status(200).send(users);
 })
 
