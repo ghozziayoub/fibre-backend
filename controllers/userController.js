@@ -68,7 +68,7 @@ app.post('/forgotPassword', (req, res) => {
 
     User.findOne({ email }).then((doc) => {
         if (!doc) {
-            res.status(404).send({ response: false, message: "incorrect email" });
+            res.status(404).send({ action: false });
         } else {
 
             let salt = bcrypt.genSaltSync(10);
