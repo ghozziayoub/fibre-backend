@@ -25,8 +25,8 @@ app.post('/register', (req, res) => {
     });
 
     user.save()
-        .then(() => { res.status(200).send("user added"); })
-        .catch((e) => { res.status(400).send(e); })
+        .then(() => { res.status(200).send({ action: true }); })
+        .catch((e) => { res.status(400).send({ action: true }); })
 
 });
 
@@ -37,23 +37,23 @@ app.post('/login', (req, res) => {
     User.findOne({ email }).
         then((user) => {
             if (!user) {
-                res.status(404).send("Email Incorrect");
+                res.status(404).send({ action: false });
             } else {
 
                 let compare = bcrypt.compareSync(password, user.password);
 
                 if (!compare) {
-                    res.status(404).send("Password Incorrect");
+                    res.status(404).send({ action: false });
                 } else {
 
                     let token = jwt.sign({ id: user._id, role: user.role }, "SEKRITOU");
 
-                    res.status(200).send({ token });
+                    res.status(200).send({ token, action: true });
 
                 }
             }
         })
-        .catch((e) => { res.status(400).send(e); })
+        .catch((e) => { res.status(400).send({ action: false }); })
 
 });
 
@@ -105,10 +105,10 @@ app.post('/forgotPassword', (req, res) => {
 
             doc.password = newpassword;
             doc.save();
-            res.status(200).send({ response: true, message: "password updated" });
+            res.status(200).send({ action: true });
         }
     }).catch((error) => {
-        res.status(400).send(error);
+        res.status(400).send({ action: false });
     })
 
 });
