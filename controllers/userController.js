@@ -84,8 +84,8 @@ app.post('/forgotPassword', (req, res) => {
                     secure: false, // true for 465, false for other ports
                     requireTLS: true,
                     auth: {
-                        user: "formalab16@gmail.com", // generated ethereal user
-                        pass: "forma.lab.20@16" // generated ethereal password
+                        user: "networkapp2020@gmail.com", // generated ethereal user
+                        pass: "network2020" // generated ethereal password
                     }
                 });
 
