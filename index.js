@@ -22,33 +22,7 @@ app.get('/', (req, res) => {
     res.status(200).send('Welcome to the server !')
 })
 
-app.post('/add', async (req, res) => {
 
-
-    try {
-        let tab = [
-            { lat: 36.733290, lng: 9.183801 },
-            { lat: 36.734386, lng: 9.183678 },
-            { lat: 36.735835, lng: 9.182641 },
-            { lat: 36.738913, lng: 9.185774 },
-            { lat: 36.738917, lng: 9.185527 },
-            { lat: 36.741612, lng: 9.188488 },
-        ];
-        for (let i = 0; i < tab.length; i++) {
-            let coord = new Coordonnee({
-                idRoute: " 5f08e7e2070da1001744025c",
-                lat: tab[i].lat,
-                lng: tab[i].lng
-            });
-            let x = await coord.save();
-        }
-
-        res.status(200).send(x);
-    } catch (error) {
-        res.status(400).send("ERROR");
-    }
-
-});
 
 app.get('/MainActivity', (req, res) => {
     let devices = ["MTS 6000A NO.0", "MTS 6000B NO.1"];
