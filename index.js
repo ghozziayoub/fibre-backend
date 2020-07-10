@@ -26,14 +26,16 @@ app.post('/add', async (req, res) => {
 
 
     try {
-        let tab = ["Beja-Bousalem1", "Bousalem2-Beja", "Beja-Garde Nationale ", "Ouad Zarga-Bousalem2", "Ouad Zarga-Beja"];
-        for (let i = 0; i < tab.length; i++) {
-            let route = new Route({
-                idDevice: " 5f08e518da023100178ee86b",
-                nom: tab[i]
-            });
-            let x = await route.save();
-        }
+        //   let tab =;
+        // for (let i = 0; i < tab.length; i++) {
+        let detail = new Detail({
+            idRoute: " 5f08e7e2070da1001744025c",
+            event: "1",
+            loss: "- 44.55",
+            distance: "985.35"
+        });
+        let x = await detail.save();
+        //}
 
         res.status(200).send(x);
     } catch (error) {
