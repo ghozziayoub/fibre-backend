@@ -23,11 +23,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/add', async (req, res) => {
-    let device = new Device({
-        nom: "MTS 6000B NO.1"
+    let route = new Route({
+        idDevice: "5f08e5836ba23700171f677d",
+        nom: "Tunis-Garde Nationale"
     });
     try {
-        let x = await device.save();
+        let x = await route.save();
         res.status(200).send(x);
     } catch (error) {
         res.status(400).send("ERROR");
