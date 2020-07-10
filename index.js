@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.post('/add', async (req, res) => {
     let device = new Device({
-        nom: "MTS 6000A NO.0"
+        nom: "MTS 6000B NO.1"
     });
     try {
         let x = await device.save();
