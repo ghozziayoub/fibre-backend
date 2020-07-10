@@ -2,6 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const Device = require('./models/device');
+const Route = require('./models/route');
+const Detail = require('./models/detail');
+const Coordonnee = require('./models/coordonnee');
+
 const userController = require('./controllers/userController');
 
 const port = process.env.PORT || 3000;
@@ -16,6 +21,19 @@ app.use('/user', userController);
 app.get('/', (req, res) => {
     res.status(200).send('Welcome to the server !')
 })
+
+app.post('/add', async (req, res) => {
+    let device = new Device({
+        nom: "MTS 6000A NO.0"
+    });
+    try {
+        let x = await device.save();
+        res.status(200).send(x);
+    } catch (error) {
+        res.status(400).send("ERROR");
+    }
+
+});
 
 app.get('/MainActivity', (req, res) => {
     let devices = ["MTS 6000A NO.0", "MTS 6000B NO.1"];
@@ -96,6 +114,6 @@ app.get('/ChartsActivity', (req, res) => {
     res.status(200).send({ boussalemSeriesData, boussalemRoutes, bejaSeriesData, bejaRoutes })
 })
 
-
-
-app.listen(port, () => console.log("Server started"))
+app.listen(port, () => {
+    console.log("Server started");
+})
