@@ -23,12 +23,18 @@ app.get('/', (req, res) => {
 })
 
 app.post('/add', async (req, res) => {
-    let route = new Route({
-        idDevice: "5f08e5836ba23700171f677d",
-        nom: "Garde Nationale-Sousse"
-    });
+
+
     try {
-        let x = await route.save();
+        let tab = ["Beja-Bousalem1", "Bousalem2-Beja", "Beja-Garde Nationale ", "Ouad Zarga-Bousalem2", "Ouad Zarga-Beja"];
+        for (let i = 0; i < tab.length; i++) {
+            let route = new Route({
+                idDevice: " 5f08e518da023100178ee86b",
+                nom: tab[i]
+            });
+            let x = await route.save();
+        }
+
         res.status(200).send(x);
     } catch (error) {
         res.status(400).send("ERROR");
