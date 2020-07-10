@@ -27,26 +27,28 @@ app.post('/add', async (req, res) => {
 
     try {
         let tab = [
-            { event: "1", loss: "- 521.5", distance: "452.36" },
-            { event: "2", loss: "- 320.5", distance: "54412.36" },
-            { event: "3", loss: "- 201.5", distance: "214.36" },
-            { event: "4", loss: "- 874.5", distance: "4110.36" },
-            { event: "5", loss: "- 521.5", distance: "54412.36" },
-            { event: "6", loss: "- 11.5", distance: "1230.36" },
-            { event: "8", loss: "- 22.5", distance: "1220.36" },
-            { event: "9", loss: "- 471.5", distance: "1002.36" },
-            { event: "10", loss: "- 520.5", distance: "1002.36" },
-            { event: "11", loss: "- 230.5", distance: "54412.36" },
-            { event: "12", loss: "- 38.5", distance: "1002.36" },
+            { lat: 36.610536, lng: 8.973817 },
+            { lat: 36.623230, lng: 9.000490 },
+            { lat: 36.622584, lng: 9.003355 },
+            { lat: 36.624207, lng: 9.027588 },
+            { lat: 36.627048, lng: 9.030345 },
+            { lat: 36.629648, lng: 9.031611 },
+            { lat: 36.627814, lng: 9.034229 },
+            { lat: 36.718086, lng: 9.268370 },
+            { lat: 36.696886, lng: 9.296306 },
+            { lat: 36.703240, lng: 9.336911 },
+            { lat: 36.682491, lng: 9.368543 },
+            { lat: 36.706456, lng: 9.400132 },
+            { lat: 36.661330, lng: 9.460802 },
+            { lat: 36.668081, lng: 9.436680 },
         ];
         for (let i = 0; i < tab.length; i++) {
-            let detail = new Detail({
+            let coord = new Coordonnee({
                 idRoute: " 5f08e7e2070da1001744025d",
-                event: tab[i].event,
-                loss: tab[i].loss,
-                distance: tab[i].distance
+                lat: tab[i].lat,
+                lng: tab[i].lng
             });
-            let x = await detail.save();
+            let x = await coord.save();
         }
 
         res.status(200).send(x);
