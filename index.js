@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 app.post('/add', async (req, res) => {
     let route = new Route({
         idDevice: "5f08e5836ba23700171f677d",
-        nom: "Tunis-Garde Nationale"
+        nom: "Garde Nationale-Sousse"
     });
     try {
         let x = await route.save();
