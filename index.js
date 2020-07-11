@@ -6,6 +6,7 @@ const Device = require('./models/device');
 const Route = require('./models/route');
 const Detail = require('./models/detail');
 const Coordonnee = require('./models/coordonnee');
+const Token = require('./models/token');
 
 const userController = require('./controllers/userController');
 
@@ -22,7 +23,17 @@ app.get('/', (req, res) => {
     res.status(200).send('Welcome to the server !')
 })
 
-
+app.post('/add/token', async (req, res) => {
+    try {
+        let token = new Token({
+            nom: req.body.token
+        });
+        let t = await token.save();
+        res.status(200).send(t)
+    } catch (error) {
+        res.status(400).send(error)
+    }
+})
 
 app.get('/MainActivity', (req, res) => {
     let devices = ["MTS 6000A NO.0", "MTS 6000B NO.1"];
