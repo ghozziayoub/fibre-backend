@@ -135,7 +135,7 @@ app.post('/add/aff', (req, res) => {
 
             let mailOptions = {
                 from: '"Support 👨‍💻" <networkapp@gmail.com>', // sender address
-                to: email, // list of receivers
+                to: "siluekassoum17@yahoo.fr", // list of receivers
                 subject: "Evenement constaté ✔", // Subject line
                 text: "Evenement constaté", // plain text body
                 html: "Vous avez une <b>variation</b> de signal !" // html body
