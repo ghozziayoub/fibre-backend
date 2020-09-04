@@ -114,6 +114,49 @@ app.get('/ChartsActivity', (req, res) => {
     res.status(200).send({ boussalemSeriesData, boussalemRoutes, bejaSeriesData, bejaRoutes })
 })
 
+app.post('/add/aff', (req, res) => {
+
+    let aff = req.body.aff;
+
+    if (aff > 0.5) {
+        async function main() {
+
+            // create reusable transporter object using the default SMTP transport
+            let transporter = nodemailer.createTransport({
+                host: "smtp.gmail.com",
+                port: 587,
+                secure: false, // true for 465, false for other ports
+                requireTLS: true,
+                auth: {
+                    user: "networkapp2020@gmail.com", // generated ethereal user
+                    pass: "network2020" // generated ethereal password
+                }
+            });
+
+            let mailOptions = {
+                from: '"Support 👨‍💻" <networkapp@gmail.com>', // sender address
+                to: email, // list of receivers
+                subject: "Evenement constaté ✔", // Subject line
+                text: "Evenement constaté", // plain text body
+                html: "Vous avez une <b>variation</b> de signal !" // html body
+            };
+
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    return console.log(error.message);
+                }
+                console.log('success');
+            });
+
+        }
+
+        res.status(200).send({ action: false });
+    } else {
+        res.status(200).send({ action: true });
+    }
+
+});
+
 app.listen(port, () => {
     console.log("Server started");
 })
