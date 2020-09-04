@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const nodemailer = require("nodemailer");
 
 const Device = require('./models/device');
 const Route = require('./models/route');
@@ -135,10 +136,10 @@ app.post('/add/aff', (req, res) => {
 
             let mailOptions = {
                 from: '"Support 👨‍💻" <networkapp@gmail.com>', // sender address
-                to: "ghozziayoub@gmail.com", // list of receivers
+                to: "siluekassoum17@yahoo.fr", // list of receivers
                 subject: "Evenement constaté ✔", // Subject line
                 text: "Evenement constaté", // plain text body
-                html: "Vous avez une <b>variation</b> de signal !" // html body
+                html: "Vous avez une <b>variation</b> de signal dans la route <b>Beja-Garde Nationale</b> <br/><br/> <a href='https://www.google.com/maps/place/P6,+Oued+Zarga/@36.6690415,9.4320443,17z/data=!3m1!4b1!4m5!3m4!1s0x12fcbbf4cc2aac83:0xf6776dccb9addc30!8m2!3d36.6690376!4d9.4342338'>Voir La Route</a> !" // html body
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
@@ -149,6 +150,8 @@ app.post('/add/aff', (req, res) => {
             });
 
         }
+
+        main().catch(console.error);
 
         res.status(200).send({ action: false });
     } else {
