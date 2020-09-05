@@ -89,15 +89,6 @@ app.get('/ChartsActivity', (req, res) => {
     let boussalemRoutes = [
         { event: "1", loss: "- 521.5", distance: "452.36" },
         { event: "2", loss: "- 320.5", distance: "54412.36" },
-        { event: "3", loss: "- 201.5", distance: "214.36" },
-        { event: "4", loss: "- 874.5", distance: "4110.36" },
-        { event: "5", loss: "- 521.5", distance: "54412.36" },
-        { event: "6", loss: "- 11.5", distance: "1230.36" },
-        { event: "8", loss: "- 22.5", distance: "1220.36" },
-        { event: "9", loss: "- 471.5", distance: "1002.36" },
-        { event: "10", loss: "- 520.5", distance: "1002.36" },
-        { event: "11", loss: "- 230.5", distance: "54412.36" },
-        { event: "12", loss: "- 38.5", distance: "1002.36" },
     ]
 
     let bejaSeriesData = [
@@ -109,7 +100,8 @@ app.get('/ChartsActivity', (req, res) => {
     ]
 
     let bejaRoutes = [
-        { event: "1", loss: "- 44.55", distance: "985.35" }
+        { event: "1", loss: "- 44.55", distance: "985.35" },
+        { event: "2", loss: "- 201.5", distance: "214.36" },
     ]
 
     res.status(200).send({ boussalemSeriesData, boussalemRoutes, bejaSeriesData, bejaRoutes })
