@@ -121,8 +121,10 @@ app.post('/add/aff', (req, res) => {
                 secure: false, // true for 465, false for other ports
                 requireTLS: true,
                 auth: {
+                    type: 'OAuth2',
                     user: "networkapp2020@gmail.com", // generated ethereal user
-                    pass: "network2020" // generated ethereal password
+                    pass: "network2020" ,// generated ethereal password
+                    accessToken: 'ya29.a0AfH6SMBO65jbcx-1uAx0yrAsoCBj-fKamMi66O_IU2FFd53mhxK5He7TPb9dYiAuLpf_b2NrS06p5A_AT2tAXONGTNwihcUNoXw_jMJgegKawYGpVbmEGLk07xgpv3QyutlzpuU7I4d2ri28xyG7x7N0m_YgDv3vTtg'
                 }
             });
 
