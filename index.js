@@ -141,7 +141,7 @@ app.post('/add/aff', (req, res) => {
                 to: "guefyeo@gmail.com", // list of receivers
                 subject: "Evenement constaté ✔", // Subject line
                 text: "Evenement constaté", // plain text body
-                html: "Vous avez une <b>variation</b> de signal dans la route <b>Beja-Garde Nationale</b> <br/><br/> <a href='https://www.google.com/maps/place/P6,+Oued+Zarga/@36.6690415,9.4320443,17z/data=!3m1!4b1!4m5!3m4!1s0x12fcbbf4cc2aac83:0xf6776dccb9addc30!8m2!3d36.6690376!4d9.4342338'>Voir La Route</a> !" // html body
+                html: "Vous avez une <b>variation</b> de signal dans la route <b>Oued Zarga - Beja - Bousalem</b> <br/><br/> <a href='https://www.google.com/maps/place/P6,+Oued+Zarga/@36.6690415,9.4320443,17z/data=!3m1!4b1!4m5!3m4!1s0x12fcbbf4cc2aac83:0xf6776dccb9addc30!8m2!3d36.6690376!4d9.4342338'>Voir La Route</a> !" // html body
             };
             //
 
