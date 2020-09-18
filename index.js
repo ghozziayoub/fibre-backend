@@ -38,7 +38,7 @@ app.post('/add/token', async (req, res) => {
 
 app.get('/MainActivity', (req, res) => {
     let devices = ["MTS 8000A NO.0", "MTS 8000B NO.1"];
-    let routes1 = ["Beja-Bousalem1", "Bousalem2-Beja", "Beja-Garde Nationale ", "Ouad Zarga-Bousalem2", "Ouad Zarga-Beja"];
+    let routes1 = ["Beja-Bousalem1", "Bousalem2-Beja", "Beja-Garde Nationale ", "Oued Zarga-Bousalem2", "Oued Zarga-Beja"];
     let routes2 = ["Tunis-Garde Nationale", "Garde Nationale-Sousse"];
 
     res.status(200).send({ devices, routes1, routes2 })
